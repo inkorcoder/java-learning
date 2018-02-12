@@ -12,6 +12,7 @@ import java.util.Vector;
 	For non-primitive types there is a rule, that we need to
 	write type which is a constructor class name is:
 */
+
 class dataTypes {
 	public static void main (String args[]){
 
