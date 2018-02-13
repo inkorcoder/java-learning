@@ -1,5 +1,9 @@
 import java.util.BitSet;
 import java.util.Vector;
+import java.util.Stack;
+import java.util.Dictionary;
+import java.util.Hashtable;
+import java.util.Properties;
 
 /*
 	Non-Primitive data types
@@ -25,7 +29,7 @@ class dataTypes {
 		// but in case of very large strings, maybe we need to define it
 		// as a "long" type
 		int stringVariableLength = stringVariable.length();
-		System.out.println("string: " + stringVariable + " and it length: " + stringVariableLength);
+		System.out.println("\n\rstring: " + stringVariable + " and it length: " + stringVariableLength);
 		// or we can take a specific symbol (char) at the position
 		// IMPORTANT!!! numeration in programming begins from zero, not from one
 		// so 0 - is the first one, 1 - is the second one
@@ -64,7 +68,7 @@ class dataTypes {
 		bits1.set(2);
 		bits1.set(3);
 		bits1.set(4);
-		System.out.println("BitSet one is: " + bits1 + " and it's length is " + bits1.length());
+		System.out.println("\n\rBitSet one is: " + bits1 + " and it's length is " + bits1.length());
 		// let's create another bitset
 		BitSet bits2 = new BitSet();
 		bits2.set(3);
@@ -104,7 +108,7 @@ class dataTypes {
 		vector1.add(new Integer(2));
 		vector1.addElement(new Integer(3));
 		vector1.add(new Integer(4));
-		System.out.println("The vector1 is: " + vector1);
+		System.out.println("\n\rThe vector1 is: " + vector1);
 		Vector vector2 = new Vector();
 		vector2.add(new Integer(5));
 		vector2.add(new Integer(6));
@@ -118,5 +122,65 @@ class dataTypes {
 		System.out.println("Is vector2 contains 44: " + vector2.contains(44));
 		// (https://www.tutorialspoint.com/java/java_vector_class.htm)[Vector]
 
+		// Stack (LIFO)
+		// It is an array, but it works in different way:
+		// you cannot add elements inside, or add it with custom index
+		// LIFO - (Last In First Out) it's like a building:
+		// you can place one block on another and build your house
+		// but if you need to remove your building - you need to do it
+		// block by block from top to bottom
+		// it means that if you need to add new elements - it will be appended
+		// to the end, and if you need to remove it - it also will be removed
+		// from the end, if you have an elements in stack
+		// IMPORTANT!!! It's inherited from Vector class, so it contains
+		// all methods from it, and few methods for it
+		Stack stack = new Stack();
+		// let's push an elements
+		stack.push(new Double(1.21));
+		stack.push(new Integer(21));
+		stack.push(new Double(1412.0));
+		stack.push(new Integer(3));
+		// and you can see, that the last element appends to the end of the stack
+		System.out.println("\n\rThe stack is: " + stack + " last in the end");
+		// let's remove element. Again, LIFO (Last In First Out), last element will be removed
+		stack.pop();
+		// and you can see, that the larst element was removed
+		System.out.println("\n\rThe stack is: " + stack + " last was removed");
+		// we know, that Stack class is inherited from Vector class, so we can use
+		// Vector's methods, for example .elementAt(), which takes an index and
+		// returns element with this index
+		System.out.println("The second element is: " + stack.elementAt(1)); // 0, 1, 2...
+
+		// Dictionary
+		// It is a storage repository for storing something and it represents as a key / value object
+		// It works like localStorage in JavaScript (i think so)
+		// You can put values, get values and remove values
+		// Dictionary is an abstract class, this means that you cannot call it and create
+		// new dictionary in way something like this:
+		// Dictionary dictionary = new Dictionary();
+		// instead, we need to use Map and generic Lists to create it
+		// It will be further.
+		// (https://www.tutorialspoint.com/java/java_dictionary_class.htm)[Dictionary]
+
+		// Hashtable
+		// It is actually implementing of Dictionary
+		// Here you can create hashtable:
+		// we remember, that hashtable was created from dictionary, which is created
+		// from Map interface. So we have a lot of methods
+		Hashtable hashtable = new Hashtable();
+		// add new keys
+		hashtable.put("name", "John");
+		hashtable.put("age", 24);
+		System.out.println("hashtable is: " + hashtable);
+		// we can check if our key is in table
+		System.out.println("is name in hashtable? " + hashtable.containsKey("name"));
+
+		// Properties
+		// It is a subclass of Hashtable, but it is only for storing keys as strings
+		// and values also as a strings
+		// but here you can set the default properties
+		Properties props = new Properties();
+		props.put("name", "Margarete");
+		System.out.println("Properties is: " + props);
 	}
 }
